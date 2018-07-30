@@ -15,5 +15,5 @@ RUN apk add --no-cache --virtual=build-dependencies ca-certificates
 # to be pass in.
 EXPOSE 8080 4180
 ENTRYPOINT [ "./bin/oauth2_proxy" ]
-RUN ls
+RUN ls bin
 CMD [ "--upstream=http://0.0.0.0:8080/", "--http-address=0.0.0.0:4180" ]
