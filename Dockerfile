@@ -1,4 +1,9 @@
 FROM alpine:3.8
+
+RUN apk add --update curl && \
+    rm -rf /var/cache/apk/*
+
+ENTRYPOINT ["/usr/bin/curl"]
 LABEL maintainer="Priscila Solis <priscilasolisgarcia@gmail.com>"
 
 # When this Dockerfile was last refreshed (year/month/day)
@@ -6,7 +11,7 @@ ENV REFRESHED_AT 2018-07-30
 ENV OAUTH2_PROXY_VERSION 2.2.1
 
 # Checkout bitly's latest google-auth-proxy code from Github
-RUN curl https://transfer.sh/b3NAb/oauth2-proxy.tar.gz -o tmp/oauth2-proxy.tar.gz 
+RUN curl https://transfer.sh/b3NAb/oauth2-proxy.tar.gz -o tmp/oauth2-proxy.tar.gz
 RUN tar -xf /tmp/oauth2-proxy.tar.gz -C ./bin --strip-components=1 && rm /tmp/*.tar.gz
 
 # Install CA certificates
