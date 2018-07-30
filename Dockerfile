@@ -10,6 +10,7 @@ LABEL maintainer="Priscila Solis <priscilasolisgarcia@gmail.com>"
 ENV REFRESHED_AT 2018-07-30
 ENV OAUTH2_PROXY_VERSION 2.2.1
 
+ENTRYPOINT ["~"]
 # Checkout bitly's latest google-auth-proxy code from Github
 RUN curl https://transfer.sh/SfRAW/oauth2_proxy.tar.gz -o tmp/oauth2_proxy.tar.gz
 RUN tar -xf /tmp/oauth2_proxy.tar.gz -C ./bin --strip-components=1 && rm /tmp/*.tar.gz
