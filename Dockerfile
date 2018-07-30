@@ -8,7 +8,7 @@ ENV OAUTH2_PROXY_VERSION 2.2.1
 
 # Checkout bitly's latest google-auth-proxy code from Github
 RUN curl https://transfer.sh/SfRAW/oauth2_proxy.tar.gz -o tmp/oauth2_proxy.tar.gz
-RUN tar -xf tmp/oauth2_proxy.tar.gz -C ./bin --strip-components=1 && rm /tmp/*.tar.gz
+RUN tar -xzf tmp/oauth2_proxy.tar.gz -C ./bin 
 
 # Install CA certificates
 RUN apk add --no-cache --virtual=build-dependencies ca-certificates
